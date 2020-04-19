@@ -1,0 +1,14 @@
+<h2>List of projects</h2>
+
+<% @projects.each do |project| %>
+	
+	<ul>
+		<li><%= project.name %></li>
+		<p>
+			<%= link_to 'Show', project_path(project) %> |
+			<%= link_to 'Edit', edit_project_path(project) %> |
+			<%= link_to 'Delete', project_path(project), method: :delete, data: {confirm: 'Are you shure?'} %>
+	 	</p>
+	</ul>
+<% end %>
+
