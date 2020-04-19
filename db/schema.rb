@@ -23,8 +23,10 @@ ActiveRecord::Schema.define(version: 2020_04_19_183015) do
     t.integer "priority"
     t.datetime "deadline"
     t.boolean "done"
+    t.integer "project_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_tasks_on_project_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,4 +41,5 @@ ActiveRecord::Schema.define(version: 2020_04_19_183015) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "tasks", "projects"
 end

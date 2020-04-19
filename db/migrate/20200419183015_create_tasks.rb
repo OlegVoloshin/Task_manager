@@ -5,6 +5,7 @@ class CreateTasks < ActiveRecord::Migration[6.0]
       t.integer :priority
       t.datetime :deadline
       t.boolean :done
+      t.references :project, foreign_key: true
 
       t.timestamps
     end
