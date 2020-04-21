@@ -1,1 +1,44 @@
 <h1><%= @project.name %></h1>
+
+<h2>Tasks</h2>
+<% @project.tasks.each do |task| %>
+	<p>
+		<i><%= task.description %></i></br>
+	</p>
+	<p>
+		<i><%= task.priority %></i></br>
+	</p>
+	<p>
+		<i><%= task.deadline %></i></br>
+	</p>
+	<p>
+		<i><%= task.done %></i><br/>
+	</p>
+<% end %>
+
+<h2>Add task:</h2>
+<p>
+	<%= form_for([@project, @project.tasks.build]) do |f| %>
+		<p>
+			<%= f.label :description %><br/>
+			<%= f.text_area :description %>
+		</p>
+		<p>
+			<%= f.label :priority %><br/>
+			<%= f.text_area :priority %><br/>
+		</p>
+		<p>
+			<%= f.label :deadline %><br/>
+			<%= f.text_area :deadline %><br/>
+		</p>
+		<p>
+			<%= f.label :done %><br/>
+			<%= f.text_area :done %><br/>
+		</p>
+
+		<p>
+			<%= f.submit %>
+		</p>
+
+	<% end %>
+</p>
