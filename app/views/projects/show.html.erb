@@ -14,7 +14,11 @@
 	<p>
 		<i><%= task.done %></i><br/>
 	</p>
+	<p>
+  <%= link_to 'Destroy task', [task.project, task], method: :delete,  data: { confirm: 'Are you sure?' } %>
+</p> 
 <% end %>
+
 
 <h2>Add task:</h2>
 <p>
