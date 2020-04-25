@@ -14,8 +14,10 @@ ActiveRecord::Schema.define(version: 2020_04_19_183015) do
 
   create_table "projects", force: :cascade do |t|
     t.text "name"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -41,5 +43,6 @@ ActiveRecord::Schema.define(version: 2020_04_19_183015) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "projects", "users"
   add_foreign_key "tasks", "projects"
 end
